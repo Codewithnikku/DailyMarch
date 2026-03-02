@@ -1,18 +1,28 @@
 class TrappingRainWater {
     public int maxWater(int arr[]) {
-        // code here
         int n = arr.length;
+        if (n <= 2) return 0;
+        
+        int left = 0, right = n - 1;
+        int leftMax = 0, rightMax = 0;
         int res = 0;
-        for (int i = 1; i < n - 1; i++) {
-            int lmax = arr[i];
-            for (int j = 0; j < i; j++) {
-                lmax = Math.max(lmax, arr[j]);
+        
+        while (left <= right) {
+            if (arr[left] <= arr[right]) {
+                if (arr[left] >= leftMax) {
+                    leftMax = arr[left];
+                } else {
+                    res += leftMax - arr[left];
+                }
+                left++;
+            } else {
+                if (arr[right] >= rightMax) {
+                    rightMax = arr[right];
+                } else {
+                    res += rightMax - arr[right];
+                }
+                right--;
             }
-            int rmax = arr[i];
-            for (int j = i + 1; j < n; j++) {
-                rmax = Math.max(rmax, arr[j]);
-            }
-            res += Math.min(lmax, rmax) - arr[i];
         }
         return res;    
     }
