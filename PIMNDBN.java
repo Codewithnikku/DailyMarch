@@ -22,8 +22,8 @@ A decimal number is called deci-binary if each of its digits is either 0 or 1 wi
 
 Given a string n that represents a positive decimal integer, return the minimum number of positive deci-binary numbers needed so that they sum up to n.
 
+intution:  We need to find the maximum digit in the string.
  
-
 Example 1:
 
 Input: n = "32"
@@ -69,5 +69,6 @@ pseudo code:
         return max;
     }
 
-    
+    Time Complexity: O(n)
+    Space Complexity: O(1)
  */
