@@ -47,7 +47,10 @@ public class MSABG {
 
 /*
 LeetCode 1536. Minimum Swaps to Arrange a Binary Grid
- 
+
+Intuition:
+We need to find the minimum number of swaps required to make each row have at least n - 1 - i zeros in the end.
+
 Algorithm:
 1. Initialize n = grid.length.
 2. Initialize zeros = new int[n].
@@ -116,5 +119,6 @@ public int minSwaps(int[][] grid) {
     }
     return swaps;   
 }
-
+Time Complexity: O(n^2)
+Space Complexity: O(n)
 */ 
