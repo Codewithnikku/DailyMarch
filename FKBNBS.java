@@ -26,6 +26,10 @@ public class FKBNBS {
 /*
 LeetCode 1545. Find Kth Bit in Nth Binary String
 
+intution:
+We can observe that the nth binary string is obtained by appending '1', then the reverse of the (n - 1)th binary string, with all bits inverted.
+For example, the 3rd binary string is "0111001".
+
 Approach:
 We need to find the kth bit in the nth binary string.
 We can use the following approach:
