@@ -7,13 +7,18 @@ class MaxXORSubArrayOfSizek{
         // code here
         int n = arr.size();
         int max_xor = 0;
+        int prefix_xor_sum = 0;
+        unordered_map<int, int> prefix_xor_sum_map;
         for(int i = 0; i < n; i++){
-            int xor_sum = 0;
-            for(int j = i; j < n; j++){
-                xor_sum ^= arr[j];
-                if(xor_sum == k){
-                    max_xor = max(max_xor, j - i + 1);
-                }
+            prefix_xor_sum ^= arr[i];
+            if(prefix_xor_sum == k){
+                max_xor = max(max_xor, i + 1);
+            }
+            if(prefix_xor_sum_map.find(prefix_xor_sum ^ k) != prefix_xor_sum_map.end()){
+                max_xor = max(max_xor, i - prefix_xor_sum_map[prefix_xor_sum ^ k]);
+            }
+            if(prefix_xor_sum_map.find(prefix_xor_sum) == prefix_xor_sum_map.end()){
+                prefix_xor_sum_map[prefix_xor_sum] = i;
             }
         }
         return max_xor;
