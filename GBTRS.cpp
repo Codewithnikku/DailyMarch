@@ -1,4 +1,11 @@
-class Solution
+#include <iostream>
+#include <vector>
+#include <set>
+using namespace std;
+
+
+
+class GBTRS
 {
 public:
     vector<int> getBiggestThree(vector<vector<int>> &grid)
@@ -63,3 +70,14 @@ public:
         return ans;
     }
 };
+
+int main()
+{
+    GBTRS gbtrs;
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    vector<int> ans = gbtrs.getBiggestThree(grid);
+    for (int x : ans)
+        cout << x << " ";
+    cout << endl;
+    return 0;
+}
